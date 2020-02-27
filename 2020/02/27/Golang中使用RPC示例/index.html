@@ -17,27 +17,20 @@
   <meta http-equiv="window-target" content="_top">
   
   
-  <title>Golang学习笔记【0001】Golang环境搭建及Goland的使用 | gosharp</title>
-  <meta name="description" content="今天正式学习Golang,总的来说被这门语言优越的设计所吸引吧。废话不多说，作为一个初学者，我来简要的记录下从环境搭建到使用goland编写第一个程序的过程。  golang的环境搭建 由于被墙的原因，我的切换了多次还是不能够下载golang安装包。最后只能请朋友帮忙下载。为了防止以后换电脑重新下载，我将安装包上传到阿里云的oss上面，以后再使用直接点击链接即可。 接下来直接点击默认安装即可。因为">
-<meta name="keywords" content="Goland">
+  <title>Golang中使用RPC示例 | gosharp</title>
+  <meta name="description" content="Server.go 123456789101112131415161718192021222324252627282930313233343536373839404142434445package mainimport (	&quot;errors&quot;	&quot;fmt&quot;	&quot;log&quot;	&quot;net&quot;	&quot;net/http&quot;	&quot;net/rpc&quot;	&quot;os&quot;)type Arith struct &amp;#123;&amp;#125;type">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Golang学习笔记【0001】Golang环境搭建及Goland的使用">
-<meta property="og:url" content="https://www.gosharp.cn/2016/12/22/Golang学习笔记【0001】Golang环境搭建及Goland的使用/index.html">
+<meta property="og:title" content="Golang中使用RPC示例">
+<meta property="og:url" content="https://www.gosharp.cn/2020/02/27/Golang中使用RPC示例/index.html">
 <meta property="og:site_name" content="gosharp">
-<meta property="og:description" content="今天正式学习Golang,总的来说被这门语言优越的设计所吸引吧。废话不多说，作为一个初学者，我来简要的记录下从环境搭建到使用goland编写第一个程序的过程。  golang的环境搭建 由于被墙的原因，我的切换了多次还是不能够下载golang安装包。最后只能请朋友帮忙下载。为了防止以后换电脑重新下载，我将安装包上传到阿里云的oss上面，以后再使用直接点击链接即可。 接下来直接点击默认安装即可。因为">
+<meta property="og:description" content="Server.go 123456789101112131415161718192021222324252627282930313233343536373839404142434445package mainimport (	&quot;errors&quot;	&quot;fmt&quot;	&quot;log&quot;	&quot;net&quot;	&quot;net/http&quot;	&quot;net/rpc&quot;	&quot;os&quot;)type Arith struct &amp;#123;&amp;#125;type">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://gosharp.oss-cn-hangzhou.aliyuncs.com/hexo-client/2019/09/22/f7f95750-dd0c-11e9-86ff-c57617ea1c34.png">
-<meta property="og:image" content="http://gosharp.oss-cn-hangzhou.aliyuncs.com/hexo-client/2019/09/22/72d32940-dd0f-11e9-86ff-c57617ea1c34.png">
-<meta property="og:image" content="http://gosharp.oss-cn-hangzhou.aliyuncs.com/hexo-client/2019/09/22/1c033be0-dd10-11e9-86ff-c57617ea1c34.png">
-<meta property="og:image" content="http://gosharp.oss-cn-hangzhou.aliyuncs.com/hexo-client/2019/09/22/fa4630b0-dd10-11e9-86ff-c57617ea1c34.png">
-<meta property="og:image" content="http://gosharp.oss-cn-hangzhou.aliyuncs.com/hexo-client/2019/09/22/51262e30-dd11-11e9-86ff-c57617ea1c34.png">
-<meta property="og:updated_time" content="2020-02-25T15:18:03.383Z">
+<meta property="og:updated_time" content="2020-02-27T15:38:21.110Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Golang学习笔记【0001】Golang环境搭建及Goland的使用">
-<meta name="twitter:description" content="今天正式学习Golang,总的来说被这门语言优越的设计所吸引吧。废话不多说，作为一个初学者，我来简要的记录下从环境搭建到使用goland编写第一个程序的过程。  golang的环境搭建 由于被墙的原因，我的切换了多次还是不能够下载golang安装包。最后只能请朋友帮忙下载。为了防止以后换电脑重新下载，我将安装包上传到阿里云的oss上面，以后再使用直接点击链接即可。 接下来直接点击默认安装即可。因为">
-<meta name="twitter:image" content="http://gosharp.oss-cn-hangzhou.aliyuncs.com/hexo-client/2019/09/22/f7f95750-dd0c-11e9-86ff-c57617ea1c34.png">
+<meta name="twitter:title" content="Golang中使用RPC示例">
+<meta name="twitter:description" content="Server.go 123456789101112131415161718192021222324252627282930313233343536373839404142434445package mainimport (	&quot;errors&quot;	&quot;fmt&quot;	&quot;log&quot;	&quot;net&quot;	&quot;net/http&quot;	&quot;net/rpc&quot;	&quot;os&quot;)type Arith struct &amp;#123;&amp;#125;type">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://www.gosharp.cn/2016/12/22/Golang学习笔记【0001】Golang环境搭建及Goland的使用/index.html">
+  <link rel="canonical" href="https://www.gosharp.cn/2020/02/27/Golang中使用RPC示例/index.html">
   
     <link rel="alternate" href="/atom.xml" title="gosharp" type="application/atom+xml">
   
@@ -324,25 +317,16 @@
 
   
   
-<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
-  <div class="slimContent">
-    <nav id="toc" class="article-toc">
-      <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#golang的环境搭建"><span class="toc-number">1.</span> <span class="toc-text">golang的环境搭建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#goland下载及激活"><span class="toc-number">2.</span> <span class="toc-text">goland下载及激活</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#goland的使用"><span class="toc-number">3.</span> <span class="toc-text">goland的使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Hello-world"><span class="toc-number">4.</span> <span class="toc-text">Hello world</span></a></li></ol>
-    </nav>
-  </div>
-</aside>
-
 <main class="main" role="main">
   <div class="content">
-  <article id="post-Golang学习笔记【0001】Golang环境搭建及Goland的使用" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-Golang中使用RPC示例" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Golang学习笔记【0001】Golang环境搭建及Goland的使用
+      Golang中使用RPC示例
     </h1>
   
 
@@ -350,61 +334,28 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2016/12/22/Golang学习笔记【0001】Golang环境搭建及Goland的使用/" class="article-date">
-	  <time datetime="2016-12-22T07:46:58.000Z" itemprop="datePublished">2016-12-22</time>
+	<a href="/2020/02/27/Golang中使用RPC示例/" class="article-date">
+	  <time datetime="2020-02-27T15:37:48.000Z" itemprop="datePublished">2020-02-27</time>
 	</a>
 </span>
         
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/技术/">技术</a>
-  </span>
-
         
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/Goland/">Goland</a>
-  </span>
-
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2016/12/22/Golang学习笔记【0001】Golang环境搭建及Goland的使用/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/02/27/Golang中使用RPC示例/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>今天正式学习Golang,总的来说被这门语言优越的设计所吸引吧。废话不多说，作为一个初学者，我来简要的记录下从环境搭建到使用goland编写第一个程序的过程。</p>
-<ul>
-<li><h4 id="golang的环境搭建"><a href="#golang的环境搭建" class="headerlink" title="golang的环境搭建"></a>golang的环境搭建</h4><ul>
-<li>由于被墙的原因，我的切换了多次还是不能够下载<a href="https://dl.google.com/go/go1.13.windows-amd64.msi" target="_blank" rel="noopener">golang安装包</a>。最后只能请朋友帮忙下载。为了防止以后换电脑重新下载，我将安装包上传到阿里云的oss上面，以后再使用直接<a href="https://gosharp.oss-cn-hangzhou.aliyuncs.com/software/go1.13.windows-amd64.msi" target="_blank" rel="noopener">点击</a>链接即可。</li>
-<li>接下来直接点击默认安装即可。因为采用的是msi包安装，所以安装完成之后，无需设置环境变量即可使用。</li>
-<li>检测是否安装成功，直接在cmd中输入：go go version </li>
-<li>如果安装成功，结果如下图所示：<br><img src="http://gosharp.oss-cn-hangzhou.aliyuncs.com/hexo-client/2019/09/22/f7f95750-dd0c-11e9-86ff-c57617ea1c34.png" alt="image.png"></li>
-</ul>
-</li>
-<li><h4 id="goland下载及激活"><a href="#goland下载及激活" class="headerlink" title="goland下载及激活"></a>goland下载及激活</h4><ul>
-<li>可直接到官方网站下载，为了方便以后的查找同样，我将安装包上传oss上。下载链接如下：<a href="https://gosharp.oss-cn-hangzhou.aliyuncs.com/software/goland-2019.2.2.exe" target="_blank" rel="noopener">goland下载地址</a></li>
-<li>激活方法：为防止滥用，可私信我，获取激活码。</li>
-</ul>
-</li>
-<li><h4 id="goland的使用"><a href="#goland的使用" class="headerlink" title="goland的使用"></a>goland的使用</h4><ul>
-<li>创建项目：选择之前安装的go，选择对应的位置<br><img src="http://gosharp.oss-cn-hangzhou.aliyuncs.com/hexo-client/2019/09/22/72d32940-dd0f-11e9-86ff-c57617ea1c34.png" alt="image.png"></li>
-<li>配置gopath<br><img src="http://gosharp.oss-cn-hangzhou.aliyuncs.com/hexo-client/2019/09/22/1c033be0-dd10-11e9-86ff-c57617ea1c34.png" alt="image.png"></li>
-</ul>
-</li>
-<li><h4 id="Hello-world"><a href="#Hello-world" class="headerlink" title="Hello world"></a>Hello world</h4><ul>
-<li>创建目录：bin、pkg、src 目录</li>
-<li>点击run 直接运行</li>
-<li>配置执行信息：<br><img src="http://gosharp.oss-cn-hangzhou.aliyuncs.com/hexo-client/2019/09/22/fa4630b0-dd10-11e9-86ff-c57617ea1c34.png" alt="image.png"></li>
-<li>编写hello world 代码<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>  &#123;</span><br><span class="line">	fmt.Println(<span class="string">"Hello World"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>结果如下图所示：<br><img src="http://gosharp.oss-cn-hangzhou.aliyuncs.com/hexo-client/2019/09/22/51262e30-dd11-11e9-86ff-c57617ea1c34.png" alt="image.png"></p>
-</li>
-</ul>
+        <p><strong>Server.go</strong></p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"errors"</span></span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"log"</span></span><br><span class="line">	<span class="string">"net"</span></span><br><span class="line">	<span class="string">"net/http"</span></span><br><span class="line">	<span class="string">"net/rpc"</span></span><br><span class="line">	<span class="string">"os"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Arith <span class="keyword">struct</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">type</span> ArithRequest <span class="keyword">struct</span> &#123;</span><br><span class="line">	A <span class="keyword">int</span></span><br><span class="line">	B <span class="keyword">int</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">type</span> ArithResponse <span class="keyword">struct</span> &#123;</span><br><span class="line">	Pro <span class="keyword">int</span> <span class="comment">// 乘积</span></span><br><span class="line">	Quo <span class="keyword">int</span> <span class="comment">// 商</span></span><br><span class="line">	Rem <span class="keyword">int</span> <span class="comment">// 余数</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(this *Arith)</span> <span class="title">Multiply</span><span class="params">(req ArithRequest, res *ArithResponse)</span> <span class="title">error</span></span> &#123;</span><br><span class="line">	res.Pro = req.A * req.B</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(this *Arith)</span> <span class="title">Divide</span><span class="params">(req ArithRequest, res *ArithResponse)</span> <span class="title">error</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> req.B == <span class="number">0</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> errors.New(<span class="string">"divide by zero"</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	res.Quo = req.A / req.B</span><br><span class="line">	res.Rem = req.A % req.B</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>  &#123;</span><br><span class="line">	rpc.Register(<span class="built_in">new</span>(Arith)) <span class="comment">// 注册rpc服务</span></span><br><span class="line">	rpc.HandleHTTP()         <span class="comment">// 采用http协议作为rpc载体</span></span><br><span class="line">	lis, err := net.Listen(<span class="string">"tcp"</span>, <span class="string">"127.0.0.1:8095"</span>)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Fatalln(<span class="string">"fatal error: "</span>, err)</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Fprintf(os.Stdout, <span class="string">"%s"</span>, <span class="string">"start connection"</span>)</span><br><span class="line">	http.Serve(lis, <span class="literal">nil</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Client.go</strong></p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line"><span class="string">"fmt"</span></span><br><span class="line"><span class="string">"log"</span></span><br><span class="line"><span class="string">"net/rpc"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 算数运算请求结构体</span></span><br><span class="line"><span class="keyword">type</span> ArithRequest <span class="keyword">struct</span> &#123;</span><br><span class="line">A <span class="keyword">int</span></span><br><span class="line">B <span class="keyword">int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 算数运算响应结构体</span></span><br><span class="line"><span class="keyword">type</span> ArithResponse <span class="keyword">struct</span> &#123;</span><br><span class="line">Pro <span class="keyword">int</span> <span class="comment">// 乘积</span></span><br><span class="line">Quo <span class="keyword">int</span> <span class="comment">// 商</span></span><br><span class="line">Rem <span class="keyword">int</span> <span class="comment">// 余数</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">conn, err := rpc.DialHTTP(<span class="string">"tcp"</span>, <span class="string">"127.0.0.1:8095"</span>)</span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">log.Fatalln(<span class="string">"dailing error: "</span>, err)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">req := ArithRequest&#123;<span class="number">9</span>, <span class="number">2</span>&#125;</span><br><span class="line"><span class="keyword">var</span> res ArithResponse</span><br><span class="line"></span><br><span class="line">err = conn.Call(<span class="string">"Arith.Multiply"</span>, req, &amp;res) <span class="comment">// 乘法运算</span></span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">log.Fatalln(<span class="string">"arith error: "</span>, err)</span><br><span class="line">&#125;</span><br><span class="line">fmt.Printf(<span class="string">"%d * %d = %d\n"</span>, req.A, req.B, res.Pro)</span><br><span class="line"></span><br><span class="line">err = conn.Call(<span class="string">"Arith.Divide"</span>, req, &amp;res)</span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">log.Fatalln(<span class="string">"arith error: "</span>, err)</span><br><span class="line">&#125;</span><br><span class="line">fmt.Printf(<span class="string">"%d / %d, quo is %d, rem is %d\n"</span>, req.A, req.B, res.Quo, res.Rem)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>总结：</strong><br>1、调用远程方法==调用本地方法<br>2、调用时透明的，知道进行哪个操作是调用哪个方法<br>3、先要连接，后才操作</p>
 
       
     </div>
@@ -414,7 +365,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://www.gosharp.cn/2016/12/22/Golang学习笔记【0001】Golang环境搭建及Goland的使用/" title="Golang学习笔记【0001】Golang环境搭建及Goland的使用" target="_blank" rel="external">https://www.gosharp.cn/2016/12/22/Golang学习笔记【0001】Golang环境搭建及Goland的使用/</a>
+      <a href="https://www.gosharp.cn/2020/02/27/Golang中使用RPC示例/" title="Golang中使用RPC示例" target="_blank" rel="external">https://www.gosharp.cn/2020/02/27/Golang中使用RPC示例/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -460,20 +411,11 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2016/12/24/《Go语言编程●许式伟》学习笔记01【顺序编程】/" title="《Go语言编程●许式伟》学习笔记01【顺序编程】"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    
+    <li class="next">
+      <a href="/2020/02/27/RPC框架基础/" title="RPC框架基础"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
-    
-    
-    <li class="toggle-toc">
-      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">
-        <span>[&nbsp;</span><span>文章目录</span>
-        <i class="text-collapsed icon icon-anchor"></i>
-        <i class="text-in icon icon-close"></i>
-        <span>]</span>
-      </a>
-    </li>
     
   </ul>
   
