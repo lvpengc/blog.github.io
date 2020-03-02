@@ -17,21 +17,23 @@
   <meta http-equiv="window-target" content="_top">
   
   
-  <title>RPC在golang中的实践 | 吕鹏同学的网络博客</title>
-  <meta name="description" content="Server.go 123456789101112131415161718192021222324252627282930313233343536373839404142434445package mainimport (	&quot;errors&quot;	&quot;fmt&quot;	&quot;log&quot;	&quot;net&quot;	&quot;net/http&quot;	&quot;net/rpc&quot;	&quot;os&quot;)type Arith struct &amp;#123;&amp;#125;type">
-<meta name="keywords" content="Golang,RPC">
+  <title>HTTP协议全解 | 吕鹏同学的网络博客</title>
+  <meta name="description" content="一、HTTP协议与TCP协议的区别  什么是http协议？  HTTP协议即超文本传送协议(Hypertext Transfer Protocol )，是Web联网的基础，HTTP是基于TCP/IP的关于数据如何在万维网中如何通信的协议。HTTP的底层是TCP/IP。所以GET和POST的底层也是TCP/IP，也就是说，GET/POST都是TCP链接。GET和POST能做的事情是一样一样的。你要给">
+<meta name="keywords" content="HTTP协议">
 <meta property="og:type" content="article">
-<meta property="og:title" content="RPC在golang中的实践">
-<meta property="og:url" content="https://www.lyupeng.cn/2020/02/27/RPC在golang中的实践/index.html">
+<meta property="og:title" content="HTTP协议全解">
+<meta property="og:url" content="https://www.lyupeng.cn/2020/02/29/HTTP协议全解/index.html">
 <meta property="og:site_name" content="吕鹏的网络博客">
-<meta property="og:description" content="Server.go 123456789101112131415161718192021222324252627282930313233343536373839404142434445package mainimport (	&quot;errors&quot;	&quot;fmt&quot;	&quot;log&quot;	&quot;net&quot;	&quot;net/http&quot;	&quot;net/rpc&quot;	&quot;os&quot;)type Arith struct &amp;#123;&amp;#125;type">
+<meta property="og:description" content="一、HTTP协议与TCP协议的区别  什么是http协议？  HTTP协议即超文本传送协议(Hypertext Transfer Protocol )，是Web联网的基础，HTTP是基于TCP/IP的关于数据如何在万维网中如何通信的协议。HTTP的底层是TCP/IP。所以GET和POST的底层也是TCP/IP，也就是说，GET/POST都是TCP链接。GET和POST能做的事情是一样一样的。你要给">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-01T13:42:34.672Z">
+<meta property="og:image" content="http://gosharp.oss-cn-hangzhou.aliyuncs.com/hexo-client/2020/02/29/3cf6c7f0-5ac3-11ea-bab2-a7b0ff722664.png">
+<meta property="og:updated_time" content="2020-02-29T07:40:23.098Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RPC在golang中的实践">
-<meta name="twitter:description" content="Server.go 123456789101112131415161718192021222324252627282930313233343536373839404142434445package mainimport (	&quot;errors&quot;	&quot;fmt&quot;	&quot;log&quot;	&quot;net&quot;	&quot;net/http&quot;	&quot;net/rpc&quot;	&quot;os&quot;)type Arith struct &amp;#123;&amp;#125;type">
+<meta name="twitter:title" content="HTTP协议全解">
+<meta name="twitter:description" content="一、HTTP协议与TCP协议的区别  什么是http协议？  HTTP协议即超文本传送协议(Hypertext Transfer Protocol )，是Web联网的基础，HTTP是基于TCP/IP的关于数据如何在万维网中如何通信的协议。HTTP的底层是TCP/IP。所以GET和POST的底层也是TCP/IP，也就是说，GET/POST都是TCP链接。GET和POST能做的事情是一样一样的。你要给">
+<meta name="twitter:image" content="http://gosharp.oss-cn-hangzhou.aliyuncs.com/hexo-client/2020/02/29/3cf6c7f0-5ac3-11ea-bab2-a7b0ff722664.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://www.lyupeng.cn/2020/02/27/RPC在golang中的实践/index.html">
+  <link rel="canonical" href="https://www.lyupeng.cn/2020/02/29/HTTP协议全解/index.html">
   
     <link rel="alternate" href="/atom.xml" title="吕鹏的网络博客" type="application/atom+xml">
   
@@ -320,14 +322,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-RPC在golang中的实践" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-HTTP协议全解" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      RPC在golang中的实践
+      HTTP协议全解
     </h1>
   
 
@@ -335,33 +337,49 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2020/02/27/RPC在golang中的实践/index.html" class="article-date">
-	  <time datetime="2020-02-27T15:49:56.000Z" itemprop="datePublished">2020-02-27</time>
+	<a href="/2020/02/29/HTTP协议全解/index.html" class="article-date">
+	  <time datetime="2020-02-29T06:47:00.000Z" itemprop="datePublished">2020-02-29</time>
 	</a>
 </span>
         
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/技术/">技术</a>
+  </span>
+
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/Golang/">Golang</a>, <a class="article-tag-link" href="/tags/RPC/">RPC</a>
+	<a class="article-tag-link" href="/tags/HTTP协议/">HTTP协议</a>
   </span>
 
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/02/27/RPC在golang中的实践/index.html#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/02/29/HTTP协议全解/index.html#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p><strong>Server.go</strong></p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"errors"</span></span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"log"</span></span><br><span class="line">	<span class="string">"net"</span></span><br><span class="line">	<span class="string">"net/http"</span></span><br><span class="line">	<span class="string">"net/rpc"</span></span><br><span class="line">	<span class="string">"os"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Arith <span class="keyword">struct</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">type</span> ArithRequest <span class="keyword">struct</span> &#123;</span><br><span class="line">	A <span class="keyword">int</span></span><br><span class="line">	B <span class="keyword">int</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">type</span> ArithResponse <span class="keyword">struct</span> &#123;</span><br><span class="line">	Pro <span class="keyword">int</span> <span class="comment">// 乘积</span></span><br><span class="line">	Quo <span class="keyword">int</span> <span class="comment">// 商</span></span><br><span class="line">	Rem <span class="keyword">int</span> <span class="comment">// 余数</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(this *Arith)</span> <span class="title">Multiply</span><span class="params">(req ArithRequest, res *ArithResponse)</span> <span class="title">error</span></span> &#123;</span><br><span class="line">	res.Pro = req.A * req.B</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(this *Arith)</span> <span class="title">Divide</span><span class="params">(req ArithRequest, res *ArithResponse)</span> <span class="title">error</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> req.B == <span class="number">0</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> errors.New(<span class="string">"divide by zero"</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	res.Quo = req.A / req.B</span><br><span class="line">	res.Rem = req.A % req.B</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>  &#123;</span><br><span class="line">	rpc.Register(<span class="built_in">new</span>(Arith)) <span class="comment">// 注册rpc服务</span></span><br><span class="line">	rpc.HandleHTTP()         <span class="comment">// 采用http协议作为rpc载体</span></span><br><span class="line">	lis, err := net.Listen(<span class="string">"tcp"</span>, <span class="string">"127.0.0.1:8095"</span>)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Fatalln(<span class="string">"fatal error: "</span>, err)</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Fprintf(os.Stdout, <span class="string">"%s"</span>, <span class="string">"start connection"</span>)</span><br><span class="line">	http.Serve(lis, <span class="literal">nil</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>Client.go</strong></p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line"><span class="string">"fmt"</span></span><br><span class="line"><span class="string">"log"</span></span><br><span class="line"><span class="string">"net/rpc"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 算数运算请求结构体</span></span><br><span class="line"><span class="keyword">type</span> ArithRequest <span class="keyword">struct</span> &#123;</span><br><span class="line">A <span class="keyword">int</span></span><br><span class="line">B <span class="keyword">int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 算数运算响应结构体</span></span><br><span class="line"><span class="keyword">type</span> ArithResponse <span class="keyword">struct</span> &#123;</span><br><span class="line">Pro <span class="keyword">int</span> <span class="comment">// 乘积</span></span><br><span class="line">Quo <span class="keyword">int</span> <span class="comment">// 商</span></span><br><span class="line">Rem <span class="keyword">int</span> <span class="comment">// 余数</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">conn, err := rpc.DialHTTP(<span class="string">"tcp"</span>, <span class="string">"127.0.0.1:8095"</span>)</span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">log.Fatalln(<span class="string">"dailing error: "</span>, err)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">req := ArithRequest&#123;<span class="number">9</span>, <span class="number">2</span>&#125;</span><br><span class="line"><span class="keyword">var</span> res ArithResponse</span><br><span class="line"></span><br><span class="line">err = conn.Call(<span class="string">"Arith.Multiply"</span>, req, &amp;res) <span class="comment">// 乘法运算</span></span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">log.Fatalln(<span class="string">"arith error: "</span>, err)</span><br><span class="line">&#125;</span><br><span class="line">fmt.Printf(<span class="string">"%d * %d = %d\n"</span>, req.A, req.B, res.Pro)</span><br><span class="line"></span><br><span class="line">err = conn.Call(<span class="string">"Arith.Divide"</span>, req, &amp;res)</span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">log.Fatalln(<span class="string">"arith error: "</span>, err)</span><br><span class="line">&#125;</span><br><span class="line">fmt.Printf(<span class="string">"%d / %d, quo is %d, rem is %d\n"</span>, req.A, req.B, res.Quo, res.Rem)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>总结：</strong><br>1、调用远程方法==调用本地方法<br>2、调用时透明的，知道进行哪个操作是调用哪个方法<br>3、先要连接，后才操作</p>
+        <p><strong>一、HTTP协议与TCP协议的区别</strong></p>
+<ul>
+<li><p>什么是http协议？</p>
+<ul>
+<li><h6 id="HTTP协议即超文本传送协议-Hypertext-Transfer-Protocol-，是Web联网的基础，HTTP是基于TCP-IP的关于数据如何在万维网中如何通信的协议。HTTP的底层是TCP-IP。所以GET和POST的底层也是TCP-IP，也就是说，GET-POST都是TCP链接。GET和POST能做的事情是一样一样的。你要给GET加上request-body，给POST带上url参数，技术上是完全行的通的。"><a href="#HTTP协议即超文本传送协议-Hypertext-Transfer-Protocol-，是Web联网的基础，HTTP是基于TCP-IP的关于数据如何在万维网中如何通信的协议。HTTP的底层是TCP-IP。所以GET和POST的底层也是TCP-IP，也就是说，GET-POST都是TCP链接。GET和POST能做的事情是一样一样的。你要给GET加上request-body，给POST带上url参数，技术上是完全行的通的。" class="headerlink" title="HTTP协议即超文本传送协议(Hypertext Transfer Protocol )，是Web联网的基础，HTTP是基于TCP/IP的关于数据如何在万维网中如何通信的协议。HTTP的底层是TCP/IP。所以GET和POST的底层也是TCP/IP，也就是说，GET/POST都是TCP链接。GET和POST能做的事情是一样一样的。你要给GET加上request body，给POST带上url参数，技术上是完全行的通的。"></a>HTTP协议即超文本传送协议(Hypertext Transfer Protocol )，是Web联网的基础，HTTP是基于TCP/IP的关于数据如何在万维网中如何通信的协议。HTTP的底层是TCP/IP。所以GET和POST的底层也是TCP/IP，也就是说，GET/POST都是TCP链接。GET和POST能做的事情是一样一样的。你要给GET加上request body，给POST带上url参数，技术上是完全行的通的。</h6><ul>
+<li><h6 id="HTTP最显著的特点时客户端发送的每次请求都需要服务器回送响应，在请求结束后，会主动释放连接。"><a href="#HTTP最显著的特点时客户端发送的每次请求都需要服务器回送响应，在请求结束后，会主动释放连接。" class="headerlink" title="HTTP最显著的特点时客户端发送的每次请求都需要服务器回送响应，在请求结束后，会主动释放连接。"></a>HTTP最显著的特点时客户端发送的每次请求都需要服务器回送响应，在请求结束后，会主动释放连接。</h6></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>HTTP与TCP的关系？</p>
+<ul>
+<li><h6 id="TCP协议对应传输层，而HTTP协议对应应用层，从本质上说，Http协议是建立在TCP协议基础之上的。当浏览器需要从服务器-获取网页数据的时候，会发出一次http请求。Http通过TCP建立起一个到服务器的通道。简单的说，当一个网页完成之后，客户端和服务器端之间用于传输HTTP数据的TCP连接不会关闭，如果客户端再次访问这个页面时，会继续使用这一条已经建立的连接Keep-Alive不会永久保持连接，它有一个保持时间，可以在不同的服务器软件中设定这个时间，Http是无转态的连接，TCP是有状态的长连接，"><a href="#TCP协议对应传输层，而HTTP协议对应应用层，从本质上说，Http协议是建立在TCP协议基础之上的。当浏览器需要从服务器-获取网页数据的时候，会发出一次http请求。Http通过TCP建立起一个到服务器的通道。简单的说，当一个网页完成之后，客户端和服务器端之间用于传输HTTP数据的TCP连接不会关闭，如果客户端再次访问这个页面时，会继续使用这一条已经建立的连接Keep-Alive不会永久保持连接，它有一个保持时间，可以在不同的服务器软件中设定这个时间，Http是无转态的连接，TCP是有状态的长连接，" class="headerlink" title="TCP协议对应传输层，而HTTP协议对应应用层，从本质上说，Http协议是建立在TCP协议基础之上的。当浏览器需要从服务器 获取网页数据的时候，会发出一次http请求。Http通过TCP建立起一个到服务器的通道。简单的说，当一个网页完成之后，客户端和服务器端之间用于传输HTTP数据的TCP连接不会关闭，如果客户端再次访问这个页面时，会继续使用这一条已经建立的连接Keep-Alive不会永久保持连接，它有一个保持时间，可以在不同的服务器软件中设定这个时间，Http是无转态的连接，TCP是有状态的长连接，"></a>TCP协议对应传输层，而HTTP协议对应应用层，从本质上说，Http协议是建立在TCP协议基础之上的。当浏览器需要从服务器 获取网页数据的时候，会发出一次http请求。Http通过TCP建立起一个到服务器的通道。简单的说，当一个网页完成之后，客户端和服务器端之间用于传输HTTP数据的TCP连接不会关闭，如果客户端再次访问这个页面时，会继续使用这一条已经建立的连接Keep-Alive不会永久保持连接，它有一个保持时间，可以在不同的服务器软件中设定这个时间，Http是无转态的连接，TCP是有状态的长连接，</h6></li>
+</ul>
+</li>
+<li><h6 id="HTTP：超文本传输协议，是应用层的协议，以TCP为基础。TCP：传输控制协议，是传输层的协议，以IP协议为基础"><a href="#HTTP：超文本传输协议，是应用层的协议，以TCP为基础。TCP：传输控制协议，是传输层的协议，以IP协议为基础" class="headerlink" title="HTTP：超文本传输协议，是应用层的协议，以TCP为基础。TCP：传输控制协议，是传输层的协议，以IP协议为基础"></a>HTTP：超文本传输协议，是应用层的协议，以TCP为基础。TCP：传输控制协议，是传输层的协议，以IP协议为基础</h6></li>
+</ul>
+<p><img src="http://gosharp.oss-cn-hangzhou.aliyuncs.com/hexo-client/2020/02/29/3cf6c7f0-5ac3-11ea-bab2-a7b0ff722664.png" alt="image.png"></p>
 
       
     </div>
@@ -371,7 +389,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://www.lyupeng.cn/2020/02/27/RPC在golang中的实践/index.html" title="RPC在golang中的实践" target="_blank" rel="external">https://www.lyupeng.cn/2020/02/27/RPC在golang中的实践/index.html</a>
+      <a href="https://www.lyupeng.cn/2020/02/29/HTTP协议全解/index.html" title="HTTP协议全解" target="_blank" rel="external">https://www.lyupeng.cn/2020/02/29/HTTP协议全解/index.html</a>
     </li>
     
     <li class="post-copyright-license">
@@ -418,12 +436,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2020/02/29/HTTP协议全解/index.html" title="HTTP协议全解"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2020/02/29/与HTTP协议相关的协议/index.html" title="与HTTP协议相关的协议"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/2020/02/27/RPC框架基础/index.html" title="RPC框架基础"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2020/02/27/RPC在golang中的实践/index.html" title="RPC在golang中的实践"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
